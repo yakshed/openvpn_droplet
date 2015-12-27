@@ -1,0 +1,4 @@
+/.env
+/openvpn.out
+/terraform.tfstate
+/terraform.tfstate.backup
