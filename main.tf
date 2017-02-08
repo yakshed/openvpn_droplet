@@ -5,13 +5,13 @@ provider "digitalocean" {
 resource "digitalocean_droplet" "openvpn" {
   image = "ubuntu-14-04-x64"
   name = "32c3-openvpn"
-  region = "fra1"
+  region = "nyc3"
   size = "512mb"
   ssh_keys = ["${var.do_ssh_key}"]
-  user_data = "${template_file.openvpn_userdata.rendered}"
+  user_data = "${data.template_file.openvpn_userdata.rendered}"
 }
 
-resource "template_file" "openvpn_userdata" {
+data "template_file" "openvpn_userdata" {
   template = "openvpn.yml"
 }
 
